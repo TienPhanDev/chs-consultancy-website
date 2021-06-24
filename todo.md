@@ -1,0 +1,5 @@
+-fix footer
+-cut out navbar and cut down buttons
+-upload icon and favicon and clean up app.js
+-upload to hosting site
+-reference on linkedin and medicine2code
