@@ -83,12 +83,12 @@ const Hero = ({ themeMode = 'light', className, ...rest }) => {
         className={classes.fontWeight900}
         typedProps={{
           strings: [
-            'IT Consulting',
-            'Cloud Services',
-            'Information Security',
-            'Data Restoration',
-            'Database Administration',
-            'Serverless Applications',
+            'Payroll',
+            'Cloud Data',
+            'Security',
+            'Restoration',
+            'Administration',
+            'Deployments',
             'and many more...',
           ],
           typeSpeed: 50,
