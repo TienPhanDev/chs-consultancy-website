@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
             <meta name="theme-color" content="#ffffff" />
             <meta
             name="description"
-            content="A modern design system for your new landing and web pages."
+            content="Comprehensive IT Service Provider"
             />
             <meta
             name="robots"
@@ -26,11 +26,11 @@ export default class MyDocument extends Document {
             />
             <meta
             property="og:title"
-            content="theFront | UI Kit by Maccarian Agency."
+            content="Comprehensive IT Service Provider"
             />
             <meta
             property="og:description"
-            content="A modern design system for your new landing and web pages."
+            content="Comprehensive IT Service Provider"
             />
             <meta property="og:url" content="https://thefront.maccarianagency.com/" />
             <link

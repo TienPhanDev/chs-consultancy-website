@@ -34,13 +34,14 @@ const useStyles = makeStyles(theme => ({
     cursor: 'pointer',
   },
   menu: {
-    display: 'flex',
+    display: 'block'
   },
   menuItem: {
     marginRight: theme.spacing(8),
     '&:last-child': {
       marginRight: 0,
     },
+    display: "flex"
   },
   menuGroupItem: {
     paddingTop: 0,
@@ -57,9 +58,7 @@ const SidebarNav = props => {
   const { pages, onClose, className, ...rest } = props;
   const classes = useStyles();
 
-  const landings = pages.landings;
   const supportedPages = pages.pages;
-  const account = pages.account;
 
   const MenuGroup = props => {
     const { item } = props;
@@ -92,58 +91,20 @@ const SidebarNav = props => {
     );
   };
 
-  const LandingPages = () => {
-    const { services, apps, web } = landings.children;
-    return (
-      <div className={classes.menu}>
-        <div className={classes.menuItem}>
-          <MenuGroup item={services} />
-          <MenuGroup item={apps} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={web} />
-        </div>
-      </div>
-    );
-  };
-
   const SupportedPages = () => {
     const {
-      career,
-      helpCenter,
-      company,
-      contact,
-      blog,
-      portfolio,
+      support, about, services,
     } = supportedPages.children;
     return (
       <div className={classes.menu}>
         <div className={classes.menuItem}>
-          <MenuGroup item={career} />
-          <MenuGroup item={helpCenter} />
-          <MenuGroup item={company} />
+          <MenuGroup item={services} />
         </div>
         <div className={classes.menuItem}>
-          <MenuGroup item={contact} />
-          <MenuGroup item={blog} />
-          <MenuGroup item={portfolio} />
-        </div>
-      </div>
-    );
-  };
-
-  const AccountPages = () => {
-    const { settings, signup, signin, password, error } = account.children;
-    return (
-      <div className={classes.menu}>
-        <div className={classes.menuItem}>
-          <MenuGroup item={settings} />
-          <MenuGroup item={signup} />
+          <MenuGroup item={support} />
         </div>
         <div className={classes.menuItem}>
-          <MenuGroup item={signin} />
-          <MenuGroup item={password} />
-          <MenuGroup item={error} />
+          <MenuGroup item={about} />
         </div>
       </div>
     );
@@ -158,37 +119,13 @@ const SidebarNav = props => {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Typography variant="h6" color="textPrimary" gutterBottom>
-          Landings
+          Explore
         </Typography>
-        <LandingPages />
-      </ListItem>
-      <ListItem className={classes.listItem}>
         <Divider className={classes.divider} />
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Typography variant="h6" color="textPrimary" gutterBottom>
-          Pages
-        </Typography>
         <SupportedPages />
       </ListItem>
       <ListItem className={classes.listItem}>
         <Divider className={classes.divider} />
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Typography variant="h6" color="textPrimary" gutterBottom>
-          Account
-        </Typography>
-        <AccountPages />
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          variant="outlined"
-          fullWidth
-          component="a"
-          href="/documentation"
-        >
-          Documentation
-        </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
@@ -197,9 +134,9 @@ const SidebarNav = props => {
           fullWidth
           component="a"
           target="blank"
-          href="https://material-ui.com/store/items/the-front-landing-page/"
+          href="/contact"
         >
-          Buy Now
+          Book a consult
         </Button>
       </ListItem>
     </List>

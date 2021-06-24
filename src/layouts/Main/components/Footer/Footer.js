@@ -96,12 +96,8 @@ const useStyles = makeStyles(theme => ({
 
 const Footer = props => {
   const { pages, className, ...rest } = props;
-
   const classes = useStyles();
-
-  const landings = pages.landings;
   const supportedPages = pages.pages;
-  const account = pages.account;
 
   const MenuGroup = props => {
     const { item } = props;
@@ -128,62 +124,22 @@ const Footer = props => {
     );
   };
 
-  const LandingPages = () => {
-    const { services, apps, web } = landings.children;
-    return (
-      <div className={classes.menu}>
-        <div>
-          <MenuGroup item={services} />
-          <MenuGroup item={apps} />
-        </div>
-        <div>
-          <MenuGroup item={web} />
-        </div>
-      </div>
-    );
-  };
-
   const SupportedPages = () => {
     const {
-      career,
-      helpCenter,
-      company,
-      contact,
-      blog,
-      portfolio,
+      support,
+      about,
+      services
     } = supportedPages.children;
     return (
-      <div className={classes.menu}>
-        <div>
-          <MenuGroup item={career} />
-          <MenuGroup item={helpCenter} />
+<>        <div>
+          <MenuGroup item={services} />
         </div>
         <div>
-          <MenuGroup item={company} />
-          <MenuGroup item={contact} />
+          <MenuGroup item={support} />
         </div>
         <div>
-          <MenuGroup item={blog} />
-          <MenuGroup item={portfolio} />
-        </div>
-      </div>
-    );
-  };
-
-  const AccountPages = () => {
-    const { settings, signup, signin, password, error } = account.children;
-    return (
-      <div className={classes.menu}>
-        <div>
-          <MenuGroup item={settings} />
-          <MenuGroup item={signup} />
-        </div>
-        <div>
-          <MenuGroup item={signin} />
-          <MenuGroup item={password} />
-          <MenuGroup item={error} />
-        </div>
-      </div>
+          <MenuGroup item={about} />
+        </div></>
     );
   };
 
@@ -198,7 +154,7 @@ const Footer = props => {
                   <a href="/" title="thefront">
                     <Image
                       className={classes.logoImage}
-                      src="https://assets.maccarianagency.com/the-front/logos/logo-negative.svg"
+                      src="https://i.ibb.co/Mnzhxcp/2.png"
                       alt="thefront"
                       lazy={false}
                     />
@@ -221,19 +177,7 @@ const Footer = props => {
               </ListItem>
             </List>
           </Grid>
-          <Grid item xs={12} md={10} className={classes.menuListContainer}>
-            <Grid container spacing={0}>
-              <Grid item>
-                <LandingPages />
-              </Grid>
-              <Grid item>
-                <SupportedPages />
-              </Grid>
-              <Grid item>
-                <AccountPages />
-              </Grid>
-            </Grid>
-          </Grid>
+            <SupportedPages />
         </Grid>
       </div>
     </div>

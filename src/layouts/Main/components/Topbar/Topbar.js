@@ -130,9 +130,7 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
     setOpenedPopoverId(null);
   };
 
-  const landings = pages.landings;
   const supportedPages = pages.pages;
-  const account = pages.account;
 
   const MenuGroup = props => {
     const { item } = props;
@@ -165,76 +163,30 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
     );
   };
 
-  const LandingPages = () => {
-    const { services, apps, web } = landings.children;
-    return (
-      <div className={classes.menu}>
-        <div className={classes.menuItem}>
-          <MenuGroup item={services} />
-          <MenuGroup item={apps} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={web} />
-        </div>
-      </div>
-    );
-  };
-
   const SupportedPages = () => {
     const {
-      career,
-      helpCenter,
-      company,
-      contact,
-      blog,
-      portfolio,
+      services,
+      about,
+      support
     } = supportedPages.children;
     return (
       <div className={classes.menu}>
         <div className={classes.menuItem}>
-          <MenuGroup item={career} />
-          <MenuGroup item={helpCenter} />
+          <MenuGroup item={services} />
         </div>
         <div className={classes.menuItem}>
-          <MenuGroup item={company} />
-          <MenuGroup item={contact} />
+          <MenuGroup item={about} />
         </div>
         <div className={classes.menuItem}>
-          <MenuGroup item={blog} />
-          <MenuGroup item={portfolio} />
-        </div>
-      </div>
-    );
-  };
-
-  const AccountPages = () => {
-    const { settings, signup, signin, password, error } = account.children;
-    return (
-      <div className={classes.menu}>
-        <div className={classes.menuItem}>
-          <MenuGroup item={settings} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={signup} />
-          <MenuGroup item={signin} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={password} />
-          <MenuGroup item={error} />
+          <MenuGroup item={support} />
         </div>
       </div>
     );
   };
 
   const renderPages = id => {
-    if (id === 'landing-pages') {
-      return <LandingPages />;
-    }
     if (id === 'supported-pages') {
       return <SupportedPages />;
-    }
-    if (id === 'account') {
-      return <AccountPages />;
     }
   };
 
@@ -244,7 +196,7 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
         <a href="/" title="thefront">
           <Image
             className={classes.logoImage}
-            src={themeMode === 'light' ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg' : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'}
+            src={themeMode === 'light' ? '"https://i.ibb.co/V9Fz2V9/1.png"' : '"https://i.ibb.co/Mnzhxcp/2.png"'}
             alt="thefront"
             lazy={false}
           />
@@ -253,7 +205,7 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
       <div className={classes.flexGrow} />
       <Hidden smDown>
         <List disablePadding className={classes.navigationContainer}>
-          {[landings, supportedPages, account].map((page, i) => (
+          {[supportedPages].map((page, i) => (
             <div key={page.id}>
               <ListItem
                 aria-describedby={page.id}
@@ -304,15 +256,6 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
           </ListItem>
           <ListItem className={clsx(classes.listItem, 'menu-item--no-dropdown')}>
             <Button
-              variant="outlined"
-              component="a"
-              href="/documentation"
-            >
-              Documentation
-            </Button>
-          </ListItem>
-          <ListItem className={clsx(classes.listItem, 'menu-item--no-dropdown')}>
-            <Button
               variant="contained"
               color="primary"
               component="a"
@@ -320,7 +263,7 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
               href="https://material-ui.com/store/items/the-front-landing-page/"
               className={classes.listItemButton}
             >
-              Buy Now
+              Book a consult
             </Button>
           </ListItem>
         </List>

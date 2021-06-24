@@ -6,7 +6,6 @@ import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'leaflet/dist/leaflet.css';
 import 'assets/css/index.css';
 import 'aos/dist/aos.css';
-
 export default function App({ Component, pageProps }) {
   return (
     <React.Fragment>
